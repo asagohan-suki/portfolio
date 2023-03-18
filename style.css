@@ -1,2 +1,13 @@
 @charset "utf-8";
 
+.circle {
+  width: 100px;
+  height: 100px;
+  background: yellow;
+  border-radius: 50%;
+  transition: background-color .5s;
+}
+
+.circle:hover {
+  background: orange;
+}
