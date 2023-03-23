@@ -1,28 +1,35 @@
 @charset "utf-8";
 
+/* ---------- common ---------- */
+
 :root {
   --background-color: #FFFAE8;
   --section-color: #FFFEF9;
   --theme-color: #FFE486;
   --h2-color: #FFD226;
+  --gray-color: #555;
+  --font-english: 'Quicksand', sans-serif;
+  --font-japanese: 'IBM Plex Sans JP', sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--font-english);
+  color: var(--gray-color);
   background: var(--background-color);
 }
 
-section {
-  margin-top: 324px;
-  padding: 64px 0;
-  background: var(--section-color);
-}
+/* .rellax-pattern {
+  background: url(images/pattern.png);
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  display: none;
+  opacity: .2;
+} */
 
-section .container {
-  width: 1120px;
-  margin: 0 auto;
+body * {
+  box-sizing: border-box;
 }
 
 ul {
@@ -46,9 +53,44 @@ p {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- Intersection Observer ---------- */
+
+.target {
+  transition: transform .3s;
+  transform: translateY(50px);
+}
+
+.target.up {
+  transform: translateY(0);
+}
+
+/* ---------- loader ---------- */
+
+.loader {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  display: none;
+}
+
+main {
+  display: none;
+}
+
+/* ---------- header ---------- */
+
 header {
   position: relative;
-  height: 800px;
+  height: 100vh;
   background: var(--section-color);
   text-align: center;
 }
@@ -59,98 +101,195 @@ header h1 {
   left: 0;
   right: 0;
   margin: 0 auto;
+  font-size: 0;
 }
 
 header .subtitle {
   display: block;
+  font-family: var(--font-japanese);
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
+  letter-spacing: .2rem;
+}
+
+header path {
+  fill: white;
+  stroke: white;
+  stroke-width: 1;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: appear-logo 1.5s forwards linear;
+}
+
+header nav {
+  position: absolute;
+  right: 36px;
+  bottom: 36px;
+  z-index: 3;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .2rem;
+  transition: opacity .5s;
 }
 
 header ul {
-  position: absolute;
-  right: 0;
-  bottom: 0;
   display: flex;
-  justify-content: flex-end;
-  align-items: baseline;
+  align-items: flex-end;
 }
 
-header ul li {
+header ul a {
   width: 100px;
   height: 100px;
-  outline: 1px solid black;
+  outline: 1px solid var(--gray-color);
   border-radius: 50%;
   background: var(--theme-color);
   text-align: center;
   line-height: 100px;
+  cursor: pointer;
   opacity: 0;
   transform: translateY(-500px);
-  transition: all .5s;
-  animation: drop 1s forwards ease-out;
+  animation: drop .5s forwards ease-out;
 }
 
-header ul li+li {
-  margin-left: 20px;
+header ul a+a {
+  margin-left: 36px;
 }
 
-header ul li:nth-child(2) {
-  animation-delay: .2s;
+header ul a:nth-child(1) {
+  animation-delay: 1.5s;
 }
-header ul li:nth-child(3) {
-  animation-delay: .4s;
+
+header ul a:nth-child(2) {
+  animation-delay: 1.7s;
+}
+
+header ul a:nth-child(3) {
+  animation-delay: 1.9s;
+}
+
+header nav.transparent {
+  opacity: 0;
+}
+
+header nav.fixed {
+  position: fixed;
+  top: 0;
+  right: 36px;
+  opacity: 1;
+  font-size: 13px;
+  letter-spacing: 0.15rem;
+}
+
+header nav.fixed ul {
+  flex-direction: column;
+}
+
+header nav.fixed a {
+  width: 80px;
+  height: 80px;
+  margin-top: 16px;
+  line-height: 80px;
+}
+
+/* ---------- section common ---------- */
+
+section {
+  margin-top: 200px;
+  padding: 56px 0 90px;
+  background: var(--section-color);
+}
+
+section .container {
+  max-width: 1120px;
+  margin: 0 auto;
 }
 
 section h2 {
+  margin-bottom: 64px;
   text-align: center;
   font-size: 48px;
   color: var(--h2-color);
+  line-height: 1;
+  letter-spacing: .3rem;
 }
 
-section.me .dl-container {
+/* ---------- about ---------- */
+
+.about .container {
+  padding: 0 96px;
+}
+
+.about .dl-box {
   display: flex;
+  align-items: center;
+  gap: 48px;
+  font-family: var(--font-japanese);
+  font-size: 15px;
+  letter-spacing: .1rem;
 }
 
-.band {
-  height: 200px;
-  background: rgb(255, 214, 80);
-  margin-top: 800px;
-  transition: transform 1s;
-  transform: translateY(100px);
+.about .dl-box+.dl-box {
+  margin-top: 68px;
 }
 
-.band.up {
-  transform: translateY(0);
+.about dt {
+  padding: 8px;
+  background: var(--background-color);
+  border: 1px solid var(--gray-color);
+  text-align: center;
+  flex: 1;
+  font-weight: 500;
 }
 
-.text {
-  opacity: 0;
-  transition: opacity .5s;
+.about dd {
+  flex: 5;
 }
 
-.appear {
-  opacity: 1;
+/* ---------- works ---------- */
+
+.works .contents {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
 }
 
-/* svg {
-  width: 978px;
-  height: 241px;
-} */
-
-svg {
-  width: 500px;
+.works .content {
+  width: 150px;
+  height: 150px;
+  outline: 1px solid var(--gray-color);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-path {
-  fill: white;
-  stroke: white;
-  stroke-width: 1;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: change-logo-color 1.5s forwards linear;
+.works .content img {
+  width: 100%;
+  border-radius: 50%;
 }
 
-@keyframes change-logo-color {
+/* ---------- contact ---------- */
+
+.contact .twitter-box {
+  padding: 64px 0;
+}
+
+.contact .twitter-box a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact .bi-twitter {
+  font-size: 32px;
+}
+
+.contact address {
+  font-style: normal;
+}
+
+/* ---------- animation ---------- */
+
+@keyframes appear-logo {
   80% {
     fill: white;
     stroke: black;
@@ -161,17 +300,18 @@ path {
   }
 }
 
-/* アニメーション */
-
 @keyframes drop {
   0% {
-    transform: translateY(-500px) scale(.8, 1.4);
+    transform: translateY(-200px) scale(.8, 1.4);
   }
-  60% {
+  30% {
     transform: translateY(0) scale(1, 1);
   }
+  50% {
+    transform: translateY(20px) scale(1.6, .7);
+  }
   70% {
-    transform: translateY(20px) scale(1.4, .8);
+    transform: translateY(0) scale(1.4, .8);
   }
   80% {
     transform: translateY(0) scale(1.2, .9);
@@ -180,4 +320,13 @@ path {
     opacity: 1;
     transform: translateY(0) scale(1, 1);
   }
+}
+
+/* ---------- テスト用 ---------- */
+
+#test {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: pink;
 }

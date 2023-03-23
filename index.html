@@ -4,22 +4,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>portfolio</title>
+  <title>あさごはんのポートフォリオ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- loader -->
+  <div class="loader">
+    <p>loading...</p>
+  </div>
+  <!-- header -->
   <header>
+    <div id="test">
+      <p id="test1"></p>
+      <p id="test2"></p>
+      <p id="test3"></p>
+    </div>
     <!-- タイトルロゴ -->
-    <h1>
+    <h1>asagohan
       <svg version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
         x="0px" y="0px" width="400px" height="100px" viewBox="-20 -19.997 400 100" enable-background="new -20 -19.997 400 100"
         xml:space="preserve">
-      <defs>
-      </defs>
       <path id="logo-a1" d="M29.637,13.979c-1.09,0-1.944,0.854-1.944,1.944v3.779c-2.973-3.601-7.351-5.723-11.901-5.723
         C7.084,13.979,0,21.452,0,30.635c0,9.185,7.084,16.656,15.791,16.656c4.525,0,8.904-2.146,11.901-5.788v3.844
         c0,1.055,0.891,1.944,1.944,1.944c1.055,0,1.945-0.89,1.945-1.944V15.923C31.582,14.833,30.728,13.979,29.637,13.979z
@@ -68,41 +77,69 @@
       </svg>
       <span class="subtitle">あさごはんのポートフォリオサイト</span>
     </h1>
+    <!-- nav -->
     <nav>
       <ul>
-        <li>me</li>
-        <li>works</li>
-        <li>contact</li>
+        <a href="#about-link"><li>about</li></a>
+        <a href="#works-link"><li>works</li></a>
+        <a href="#contact-link"><li>contact</li></a>
       </ul>
     </nav>
   </header>
-  <section class="me">
-    <div class="container">
-      <h2>me</h2>
-      <dl>
-        <div class="dl-container">
-          <dt>あさごはん</dt>
-          <dd>あさごはんと申します。服飾雑貨のデザイナーとして働いています。プログラミングで何か作ってみたくて、学習を始めました。</dd>
+  <!-- main -->
+  <main>
+    <!-- about -->
+    <section id="about-link" class="about">
+      <div class="container">
+        <h2>about</h2>
+        <dl>
+          <div class="dl-box">
+            <dt>あさごはん</dt>
+            <dd>あさごはんと申します。服飾雑貨のデザイナーとして働いています。プログラミングで何か作ってみたくて、学習を始めました。</dd>
+          </div>
+          <div class="dl-box">
+            <dt>できること</dt>
+            <dd>Webサイトのデザイン/制作 (HTML/CSS/JavaScript)<br>グラフィック (illustrator/photoshop)</dd>
+          </div>
+          <div class="dl-box">
+            <dt>やりたいこと</dt>
+            <dd>フロントエンドの技術を中心に学習を進めていく予定です。楽しく、親しみやすく、見やすいUI/UXを作れるようになりたいです。</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+    <!-- works -->
+    <section id="works-link" class="works">
+      <div class="container">
+        <h2>works</h2>
+        <div class="contents">
+          <div class="content">
+            <img src="images/thum_password.jpg" alt="パスワード生成アプリのサムネイル">
+          </div>
+          <div class="content">
+            <img src="images/thum_countdown.jpg" alt="カウントダウンアプリのサムネイル">
+          </div>
+          <div class="content">
+            <img src="images/thum_slideshow.jpg" alt="スライドショーのサムネイル">
+          </div>
         </div>
-        <div class="dl-container">
-          <dt>できること</dt>
-          <dd>Webサイトのデザイン/制作 (HTML/CSS/JavaScript)<br>グラフィック (illustrator/photoshop)</dd>
+      </div>
+    </section>
+    <!-- contact -->
+    <section id="contact-link" class="contact">
+      <div class="container">
+        <h2>contact</h2>
+        <div class="twitter-box">
+          <a href="https://twitter.com/asagohan2301" target="_blank">
+            <i class="bi bi-twitter"></i>
+            <address>Twitter</address>
+          </a>
         </div>
-        <div class="dl-container">
-          <dt>やりたいこと</dt>
-          <dd>フロントエンドの技術を中心に学習を進めていく予定です。楽しく、親しみやすく、見やすいUI/UXを作れるようになりたいです。</dd>
-        </div>
-      </dl>
-    </div>
-  </section>
-  
-  <div class="band"></div>
-  <p>ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
-
-  
-
-  
-
+      </div>
+    </section>
+  </main>
+  <!-- script -->
+  <script src="node_modules/rellax/rellax.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
