@@ -89,6 +89,24 @@
   const observerFollow = new IntersectionObserver(follow, optionsFollow);
   observerFollow.observe(header);
 
+  // ---------- modal ----------
+  // const contents = document.querySelectorAll('.content');
+  // contents.forEach(content => {
+  //   content.addEventListener('click', () => {
+  //     // モーダルの生成と追加
+  //     const modalBox = document.createElement('div');
+  //     modalBox.classList.add('modal-box');
+  //     const modal = document.createElement('div');
+  //     modal.classList.add('modal');
+  //     modalBox.appendChild(modal);
+  //     body.insertBefore(modalBox, header);
+  //     // ふわっと表示
+  //     setTimeout(() => {
+  //       modalBox.style.opacity = '1';
+  //     }, 10);
+  //   });
+  // })
+
   // スクロール量など確認用
   const test1 = document.getElementById('test1');
   const test2 = document.getElementById('test2');
