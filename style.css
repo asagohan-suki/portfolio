@@ -82,6 +82,10 @@ figure {
   animation: jump .7s infinite linear;
 }
 
+.loader p {
+  letter-spacing: .2rem;
+}
+
 header {
   display: none;
 }
