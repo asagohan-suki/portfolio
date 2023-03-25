@@ -144,7 +144,7 @@
   // ---------- parallax ----------
 
   // 背景画像の移動量 この値を変えると背景画像の移動する速さが変わる
-  const parallaxRatio = .2;
+  const parallaxRatio = .1;
 
   // ウィンドウをスクロールしたときに実行する関数
   function handleScroll() {
@@ -155,7 +155,7 @@
       const positionY = scrollTop * parallaxRatio;
       // 現在のスクロール量 * 移動量(parallaxRatio) ということは、parallaxRatio < 0 の場合、現在のスクロール量より小さい値になる
       background.style.backgroundPositionY = `${positionY}px`;
-      // 現在のスクロール量より位置が上の方になるから、ゆっくり動くということ
+      // 現在のスクロール量より位置が上の方になるから、ゆっくり動くということ...？
     }
   }
 
