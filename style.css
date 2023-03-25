@@ -129,7 +129,7 @@ header nav {
   position: absolute;
   right: 36px;
   bottom: 36px;
-  z-index: 3;
+  z-index: 1;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: .2rem;
@@ -272,19 +272,17 @@ section h2 {
 
 /* ---------- modal ---------- */
 
-.modal-box {
-  background: rgba(255, 250, 232, 0.8);
+.modal-cover {
+  background: var(--background-color);
+  opacity: .8;
   width: 100%;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 5;
-  transition: opacity .5s;
+  z-index: 2;
   opacity: 0;
+  transition: opacity .2s;
 }
 
 .modal {
@@ -294,8 +292,14 @@ section h2 {
   background: var(--section-color);
   outline: 1px solid var(--gray-color);
   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity .2s;
 }
 
 figure {

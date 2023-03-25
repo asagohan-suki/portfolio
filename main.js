@@ -93,7 +93,7 @@
   const instructions = {
     password: 'パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。',
     countdown: 'カウントダウンアプリです。カウントダウンアプリです。',
-    slideshow: 'スライドショー',
+    slideshow: 'スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。',
   }
 
   // ---------- modal ----------
@@ -101,14 +101,14 @@
   contents.forEach(content => {
     content.addEventListener('click', () => {
       // モーダルの生成と追加
-      const modalBox = document.createElement('div');
+      const modalCover = document.createElement('div');
       const modal = document.createElement('div');
       const figure = document.createElement('figure');
       const img = document.createElement('img');
       const figcaption = document.createElement('figcaption');
       const close = document.createElement('i');
 
-      modalBox.classList.add('modal-box');
+      modalCover.classList.add('modal-cover');
       modal.classList.add('modal');
       img.src = content.firstElementChild.src;
       img.alt = content.firstElementChild.alt;
@@ -122,18 +122,19 @@
       modal.appendChild(figure);
       modal.appendChild(close);
 
-      modalBox.appendChild(modal);
-
-      body.insertBefore(modalBox, header);
+      body.insertBefore(modalCover, header);
+      body.insertBefore(modal, header);
       // ふわっと表示
       setTimeout(() => {
-        modalBox.style.opacity = '1';
-      }, 10);
+        modalCover.style.opacity = '.8';
+        modal.style.opacity = '1';
+      }, 0);
       // モーダルを閉じる
       close.addEventListener('click', () => {
-        body.removeChild(modalBox);
+        body.removeChild(modal);
+        body.removeChild(modalCover);
       });
-      modalBox.addEventListener('click', () => {
+      modalCover.addEventListener('click', () => {
         close.click();
       })
     });
