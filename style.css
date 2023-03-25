@@ -284,13 +284,13 @@ section h2 {
   align-items: center;
   z-index: 5;
   transition: opacity .5s;
-  /* opacity: 0; */
+  opacity: 0;
 }
 
 .modal {
   width: 70%;
   height: 70%;
-  padding: 0 32px;
+  padding: 0 48px;
   background: var(--section-color);
   outline: 1px solid var(--gray-color);
   position: fixed;
@@ -301,7 +301,7 @@ section h2 {
 figure {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 48px;
 }
 
 figcaption {

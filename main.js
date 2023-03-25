@@ -89,23 +89,55 @@
   const observerFollow = new IntersectionObserver(follow, optionsFollow);
   observerFollow.observe(header);
 
+  // ---------- モーダル用説明文 ---------- 
+  const instructions = {
+    password: 'パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。',
+    countdown: 'カウントダウンアプリです。カウントダウンアプリです。',
+    slideshow: 'スライドショー',
+  }
+
   // ---------- modal ----------
-  // const contents = document.querySelectorAll('.content');
-  // contents.forEach(content => {
-  //   content.addEventListener('click', () => {
-  //     // モーダルの生成と追加
-  //     const modalBox = document.createElement('div');
-  //     modalBox.classList.add('modal-box');
-  //     const modal = document.createElement('div');
-  //     modal.classList.add('modal');
-  //     modalBox.appendChild(modal);
-  //     body.insertBefore(modalBox, header);
-  //     // ふわっと表示
-  //     setTimeout(() => {
-  //       modalBox.style.opacity = '1';
-  //     }, 10);
-  //   });
-  // })
+  const contents = document.querySelectorAll('.content');
+  contents.forEach(content => {
+    content.addEventListener('click', () => {
+      // モーダルの生成と追加
+      const modalBox = document.createElement('div');
+      const modal = document.createElement('div');
+      const figure = document.createElement('figure');
+      const img = document.createElement('img');
+      const figcaption = document.createElement('figcaption');
+      const close = document.createElement('i');
+
+      modalBox.classList.add('modal-box');
+      modal.classList.add('modal');
+      img.src = content.firstElementChild.src;
+      img.alt = content.firstElementChild.alt;
+      const keyword = content.firstElementChild.dataset.instruction;
+      figcaption.textContent = instructions[keyword];
+      close.classList.add('bi', 'bi-x-circle');
+
+      figure.appendChild(img);
+      figure.appendChild(figcaption);
+
+      modal.appendChild(figure);
+      modal.appendChild(close);
+
+      modalBox.appendChild(modal);
+
+      body.insertBefore(modalBox, header);
+      // ふわっと表示
+      setTimeout(() => {
+        modalBox.style.opacity = '1';
+      }, 10);
+      // モーダルを閉じる
+      close.addEventListener('click', () => {
+        body.removeChild(modalBox);
+      });
+      modalBox.addEventListener('click', () => {
+        close.click();
+      })
+    });
+  });
 
   // スクロール量など確認用
   const test1 = document.getElementById('test1');
