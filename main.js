@@ -89,6 +89,57 @@
   const observerFollow = new IntersectionObserver(follow, optionsFollow);
   observerFollow.observe(header);
 
+  // ---------- モーダル用説明文 ---------- 
+  const instructions = {
+    password: 'パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。',
+    countdown: 'カウントダウンアプリです。カウントダウンアプリです。',
+    slideshow: 'スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。',
+  }
+
+  // ---------- modal ----------
+  const contents = document.querySelectorAll('.content');
+  contents.forEach(content => {
+    content.addEventListener('click', () => {
+      // モーダルの生成と追加
+      const modalCover = document.createElement('div');
+      const modal = document.createElement('div');
+      const figure = document.createElement('figure');
+      const img = document.createElement('img');
+      const figcaption = document.createElement('figcaption');
+      const close = document.createElement('i');
+
+      modalCover.classList.add('modal-cover');
+      modal.classList.add('modal');
+      img.src = content.firstElementChild.src;
+      img.alt = content.firstElementChild.alt;
+      const keyword = content.firstElementChild.dataset.instruction;
+      figcaption.textContent = instructions[keyword];
+      close.classList.add('bi', 'bi-x-circle');
+
+      figure.appendChild(img);
+      figure.appendChild(figcaption);
+
+      modal.appendChild(figure);
+      modal.appendChild(close);
+
+      body.insertBefore(modalCover, header);
+      body.insertBefore(modal, header);
+      // ふわっと表示
+      setTimeout(() => {
+        modalCover.style.opacity = '.8';
+        modal.style.opacity = '1';
+      }, 0);
+      // モーダルを閉じる
+      close.addEventListener('click', () => {
+        body.removeChild(modal);
+        body.removeChild(modalCover);
+      });
+      modalCover.addEventListener('click', () => {
+        close.click();
+      })
+    });
+  });
+
   // スクロール量など確認用
   const test1 = document.getElementById('test1');
   const test2 = document.getElementById('test2');
