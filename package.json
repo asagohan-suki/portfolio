@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/umenatto/portfolio#readme",
   "dependencies": {
-    "rellax": "^1.12.1",
     "smoothscroll-polyfill": "^0.4.4"
   }
 }

@@ -52,14 +52,22 @@ figure {
   margin: 0;
 }
 
+.description {
+  font-family: var(--font-japanese);
+  font-size: 14px;
+  letter-spacing: .1rem;
+}
+
 /* ---------- Intersection Observer ---------- */
 
 .target {
-  transition: transform .3s;
+  transition: transform .3s, opacity 1s;
+  opacity: 0;
   transform: translateY(50px);
 }
 
 .target.up {
+  opacity: 1;
   transform: translateY(0);
 }
 
@@ -74,10 +82,11 @@ figure {
 }
 
 .loader .egg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   margin-left: 16px;
   border-radius: 50%;
+  outline: 1px solid var(--gray-color);
   background-color: var(--theme-color);
   animation: jump .7s infinite linear;
 }
@@ -118,9 +127,8 @@ main {
 }
 
 .modal {
-  width: 70%;
-  height: 70%;
-  padding: 0 48px;
+  width: 720px;
+  padding: 48px;
   background: var(--section-color);
   outline: 1px solid var(--gray-color);
   position: fixed;
@@ -140,10 +148,8 @@ figure {
   gap: 48px;
 }
 
-figcaption {
-  font-family: var(--font-japanese);
-  font-size: 15px;
-  letter-spacing: .1rem;
+.modal img {
+  width: 320px;
 }
 
 .bi-x-circle {
@@ -152,6 +158,13 @@ figcaption {
   right: 16px;
   font-size: 20px;
   cursor: pointer;
+}
+
+span.language {
+  display: block;
+  margin-top: 16px;
+  font-size: 11px;
+  font-weight: 500;
 }
 
 /* ---------- header ---------- */
@@ -263,12 +276,12 @@ header nav.fixed a {
 
 section {
   margin-top: 200px;
-  padding: 56px 0 90px;
+  padding: 56px 0 112px;
   background: var(--section-color);
 }
 
 section .container {
-  max-width: 1120px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -283,17 +296,10 @@ section h2 {
 
 /* ---------- about ---------- */
 
-.about .container {
-  padding: 0 96px;
-}
-
 .about .dl-box {
   display: flex;
   align-items: center;
   gap: 48px;
-  font-family: var(--font-japanese);
-  font-size: 15px;
-  letter-spacing: .1rem;
 }
 
 .about .dl-box+.dl-box {
@@ -316,28 +322,44 @@ section h2 {
 /* ---------- works ---------- */
 
 .works .contents {
+  width: 640px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
-  gap: 32px;
+  flex-wrap: wrap;
+  gap: 64px;
 }
 
 .works .content {
-  width: 150px;
-  height: 150px;
+  width: 144px;
+  height: 144px;
   outline: 1px solid var(--gray-color);
   border-radius: 50%;
   cursor: pointer;
+  position: relative;
 }
 
 .works .content img {
   width: 100%;
+  height: 100%;
   border-radius: 50%;
+  object-fit: cover;
+}
+
+.works .content p {
+  width: 100%;
+  padding:16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 500;
 }
 
 /* ---------- contact ---------- */
 
 .contact .twitter-box {
-  padding: 64px 0;
+  padding: 128px 0;
 }
 
 .contact .twitter-box a {
@@ -402,13 +424,4 @@ section h2 {
     opacity: 1;
     transform: translateY(0) scale(1, 1);
   }
-}
-
-/* ---------- テスト用 ---------- */
-
-#test {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  background: pink;
 }
