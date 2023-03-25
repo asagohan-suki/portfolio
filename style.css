@@ -52,6 +52,12 @@ figure {
   margin: 0;
 }
 
+.description {
+  font-family: var(--font-japanese);
+  font-size: 15px;
+  letter-spacing: .1rem;
+}
+
 /* ---------- Intersection Observer ---------- */
 
 .target {
@@ -140,18 +146,19 @@ figure {
   gap: 48px;
 }
 
-figcaption {
-  font-family: var(--font-japanese);
-  font-size: 15px;
-  letter-spacing: .1rem;
-}
-
 .bi-x-circle {
   position: absolute;
   top: 16px;
   right: 16px;
   font-size: 20px;
   cursor: pointer;
+}
+
+span.language {
+  display: block;
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 /* ---------- header ---------- */
@@ -291,9 +298,6 @@ section h2 {
   display: flex;
   align-items: center;
   gap: 48px;
-  font-family: var(--font-japanese);
-  font-size: 15px;
-  letter-spacing: .1rem;
 }
 
 .about .dl-box+.dl-box {
@@ -314,6 +318,11 @@ section h2 {
 }
 
 /* ---------- works ---------- */
+
+/* .works p {
+  text-align: center;
+  margin-bottom: 36px;
+} */
 
 .works .contents {
   display: flex;

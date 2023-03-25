@@ -92,9 +92,9 @@
 
   // ---------- モーダル用説明文 ---------- 
   const instructions = {
-    password: 'パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。パスワードアプリです。',
-    countdown: 'カウントダウンアプリです。カウントダウンアプリです。',
-    slideshow: 'スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。スライドショーです。',
+    password: 'パスワード生成アプリです。プログラミング学習サービス「ドットインストール」のレッスンをもとに作りました。<br>レッスンのままのコードだと数字と記号にチェックをいれても確率上入らないことがあるので、その点を改良しました。パスワード生成用の文字列をいったん完成させた後に、1文字(2文字)を数字(記号)に置き換えるという方法で実装しました。<span class="language">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
+    countdown: 'カウントダウンアプリです。プログラミング学習サービス「ドットインストール」のレッスンをもとに作りました。<br>レッスンのままのコードだと決まった秒数でのカウントダウン機能のみだったので、その点を改良しました。秒数を選べて、Start/Stop/Cancelができるようにしました。StartとStopを共通のボタンにするのが難しかったです。<span class="language">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
+    slideshow: 'プログラミング学習サービス「ドットインストール」のレッスンをもとに作ったライドショーです。<br>フォルダ内に写真を追加すると、自動的にスライドショーにも追加されるようにコードをアレンジしました。<span class="language">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
   }
 
   // ---------- modal ----------
@@ -114,7 +114,8 @@
       img.src = content.firstElementChild.src;
       img.alt = content.firstElementChild.alt;
       const keyword = content.firstElementChild.dataset.instruction;
-      figcaption.textContent = instructions[keyword];
+      figcaption.classList.add('description');
+      figcaption.innerHTML = instructions[keyword];
       close.classList.add('bi', 'bi-x-circle');
 
       figure.appendChild(img);
