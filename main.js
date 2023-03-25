@@ -137,17 +137,18 @@
     });
     // ---------- mouseover ----------
     content.addEventListener('mouseover', () => {
-      const contentCover = content.lastElementChild;
+      const contentCover = content.children[1];
       contentCover.classList.add('appear');
-      const contentTitle = contentCover.firstElementChild;
+      const contentTitle = content.children[2];
+      contentTitle.classList.add('appear');
       setTimeout(() => {
-        contentTitle.textContent = content.firstElementChild.alt;
+        contentTitle.textContent = content.children[0].alt;
       }, 300);
     });
     // ---------- mouseleave ----------
     content.addEventListener('mouseleave', () => {
-      content.lastElementChild.lastElementChild.textContent = '';
-      content.lastElementChild.classList.remove('appear');
+      content.children[1].classList.remove('appear');
+      content.children[2].classList.remove('appear');
     });
   });
 
