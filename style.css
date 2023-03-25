@@ -60,14 +60,16 @@ figure {
 
 /* ---------- Intersection Observer ---------- */
 
-/* .target {
-  transition: transform .3s;
+.target {
+  transition: transform .3s, opacity 1s;
+  opacity: 0;
   transform: translateY(50px);
 }
 
 .target.up {
+  opacity: 1;
   transform: translateY(0);
-} */
+}
 
 /* ---------- loader ---------- */
 

@@ -39,27 +39,27 @@
   });
 
   // ---------- Intersection Observer ----------
-  // const options = {
-  //   threshold: 0,
-  // }
+  const options = {
+    threshold: 0,
+  }
 
-  // const callback = (entries, observer) => {
-  //   entries.forEach(entry => {
-  //     if(!entry.isIntersecting) {
-  //       return;
-  //     }
-  //     entry.target.classList.add('up');
-  //     observer.unobserve(entry.target);
-  //   });
-  // }
+  const callback = (entries, observer) => {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) {
+        return;
+      }
+      entry.target.classList.add('up');
+      observer.unobserve(entry.target);
+    });
+  }
 
-  // const observer = new IntersectionObserver(callback, options);
+  const observer = new IntersectionObserver(callback, options);
 
-  // const targets = document.querySelectorAll('.target');
+  const targets = document.querySelectorAll('.target');
 
-  // targets.forEach(target => {
-  //   observer.observe(target);
-  // });
+  targets.forEach(target => {
+    observer.observe(target);
+  });
 
   // ---------- nav ----------
   const optionsFollow = {
