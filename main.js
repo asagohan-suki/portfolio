@@ -91,11 +91,12 @@
     memo: 'プログラミング学習サービス「ドットインストール」のレッスンをもとに作ったメモアプリです。ローカルストレージを利用しています。メモを複数追加できて、個別削除できるようにアレンジしました。<span class="language">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
   }
 
-  // ---------- modal ----------
+  // ---------- mouseover animation & modal ----------
   const contents = document.querySelectorAll('.content');
   contents.forEach(content => {
+    // ---------- modal ----------
     content.addEventListener('click', () => {
-      // モーダルの生成と追加
+      // モーダル表示
       const modalCover = document.createElement('div');
       const modal = document.createElement('div');
       const figure = document.createElement('figure');
@@ -120,7 +121,7 @@
 
       body.insertBefore(modalCover, background);
       body.insertBefore(modal, background);
-      // ふわっと表示
+      // モーダルをふわっと表示
       setTimeout(() => {
         modalCover.style.opacity = '.8';
         modal.style.opacity = '1';
@@ -132,7 +133,21 @@
       });
       modalCover.addEventListener('click', () => {
         close.click();
-      })
+      });
+    });
+    // ---------- mouseover ----------
+    content.addEventListener('mouseover', () => {
+      const contentCover = content.lastElementChild;
+      contentCover.classList.add('appear');
+      const contentTitle = contentCover.firstElementChild;
+      setTimeout(() => {
+        contentTitle.textContent = content.firstElementChild.alt;
+      }, 300);
+    });
+    // ---------- mouseleave ----------
+    content.addEventListener('mouseleave', () => {
+      content.lastElementChild.lastElementChild.textContent = '';
+      content.lastElementChild.classList.remove('appear');
     });
   });
 
@@ -157,7 +172,6 @@
   // ウィンドウをスクロールしたときに handleScroll() 関数を実行
   window.addEventListener("scroll", handleScroll);
 
-  // ---------- mouseover ----------
 
 
 }
