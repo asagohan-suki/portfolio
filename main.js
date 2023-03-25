@@ -157,4 +157,7 @@
   // ウィンドウをスクロールしたときに handleScroll() 関数を実行
   window.addEventListener("scroll", handleScroll);
 
+  // ---------- mouseover ----------
+
+
 }
