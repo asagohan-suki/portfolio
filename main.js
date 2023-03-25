@@ -6,6 +6,7 @@
   const body = document.querySelector('body');
   const nav = document.querySelector('nav');
   const header = document.querySelector('header');
+  const background = document.querySelector(".background");
   
   // ---------- smooth scroll ----------
   window.addEventListener('DOMContentLoaded', () => {
@@ -38,27 +39,27 @@
   });
 
   // ---------- Intersection Observer ----------
-  const options = {
-    threshold: 0,
-  }
+  // const options = {
+  //   threshold: 0,
+  // }
 
-  const callback = (entries, observer) => {
-    entries.forEach(entry => {
-      if(!entry.isIntersecting) {
-        return;
-      }
-      entry.target.classList.add('up');
-      observer.unobserve(entry.target);
-    });
-  }
+  // const callback = (entries, observer) => {
+  //   entries.forEach(entry => {
+  //     if(!entry.isIntersecting) {
+  //       return;
+  //     }
+  //     entry.target.classList.add('up');
+  //     observer.unobserve(entry.target);
+  //   });
+  // }
 
-  const observer = new IntersectionObserver(callback, options);
+  // const observer = new IntersectionObserver(callback, options);
 
-  const targets = document.querySelectorAll('.target');
+  // const targets = document.querySelectorAll('.target');
 
-  targets.forEach(target => {
-    observer.observe(target);
-  });
+  // targets.forEach(target => {
+  //   observer.observe(target);
+  // });
 
   // ---------- nav ----------
   const optionsFollow = {
@@ -122,8 +123,8 @@
       modal.appendChild(figure);
       modal.appendChild(close);
 
-      body.insertBefore(modalCover, header);
-      body.insertBefore(modal, header);
+      body.insertBefore(modalCover, background);
+      body.insertBefore(modal, background);
       // ふわっと表示
       setTimeout(() => {
         modalCover.style.opacity = '.8';
@@ -140,7 +141,28 @@
     });
   });
 
-  // スクロール量など確認用
+  // ---------- parallax ----------
+
+  // 背景画像の移動量 この値を変えると背景画像の移動する速さが変わる
+  const parallaxRatio = .2;
+
+  // ウィンドウをスクロールしたときに実行する関数
+  function handleScroll() {
+    // その時のスクロール量を取得
+    const scrollTop = window.scrollY;
+    // スクロールされる度に、背景画像の位置を更新
+    if (background) {
+      const positionY = scrollTop * parallaxRatio;
+      // 現在のスクロール量 * 移動量(parallaxRatio) ということは、parallaxRatio < 0 の場合、現在のスクロール量より小さい値になる
+      background.style.backgroundPositionY = `${positionY}px`;
+      // 現在のスクロール量より位置が上の方になるから、ゆっくり動くということ
+    }
+  }
+
+  // ウィンドウをスクロールしたときに handleScroll() 関数を実行
+  window.addEventListener("scroll", handleScroll);
+
+  // スクロール量など確認用 ------------------------------------------------------
   const test1 = document.getElementById('test1');
   const test2 = document.getElementById('test2');
   const test3 = document.getElementById('test3');
