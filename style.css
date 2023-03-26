@@ -103,11 +103,16 @@ main {
   display: none;
 }
 
+footer {
+  display: none;
+}
+
 /* ---------- parallax ---------- */
 
 .background {
   background: var(--background-color);
-  background-image: url('images/pattern.png');
+  background-image: url('images/pattern2.png');
+  background-size: 60px 60px;
   z-index: -1;
 }
 
@@ -121,7 +126,7 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   opacity: 0;
   transition: opacity .2s;
 }
@@ -137,7 +142,7 @@ main {
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  z-index: 3;
+  z-index: 4;
   opacity: 0;
   transition: opacity .2s;
 }
@@ -282,7 +287,7 @@ header .icon {
   left: 16px;
   font-size: 24px;
   line-height: 36px;
-  z-index: 5;
+  z-index: 2;
   cursor: pointer;
   transition: all .3s;
   opacity: 0;
@@ -430,6 +435,22 @@ section h2 {
   font-style: normal;
 }
 
+/* ---------- footer ---------- */
+
+footer {
+  background: var(--section-color);
+  text-align: center;
+}
+
+footer small {
+  display: block;
+  width: calc(100% - 16px * 2);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 0;
+  border-top: 1px solid var(--gray-color);
+}
+
 /* ---------- animation ---------- */
 
 @keyframes jump {
@@ -493,7 +514,7 @@ section h2 {
 
   .modal {
     width: 90%;
-    padding: 24px 16px;
+    padding: 36px 16px;
     text-align: center;
   }
 
@@ -510,7 +531,7 @@ section h2 {
     text-align: left;
   }
 
-  .bi-x-circle {
+  .modal .bi-x-circle {
     top: 8px;
     right: 8px;
   }
