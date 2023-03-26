@@ -111,8 +111,8 @@ footer {
 
 .background {
   background: var(--background-color);
-  background-image: url('images/pattern2.png');
-  background-size: 60px 60px;
+  background-image: url('images/pattern.png');
+  background-size: 270px 270px;
   z-index: -1;
 }
 
