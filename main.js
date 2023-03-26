@@ -7,6 +7,8 @@
   const nav = document.querySelector('nav');
   const header = document.querySelector('header');
   const background = document.querySelector(".background");
+  const hamburger = document.querySelector('.hamburger');
+  const hamburgerClose = document.querySelector('.hamburger-close');
   
   // ---------- smooth scroll ----------
   window.addEventListener('DOMContentLoaded', () => {
@@ -42,7 +44,6 @@
   const options = {
     threshold: 0,
   }
-
   const callback = (entries, observer) => {
     entries.forEach(entry => {
       if(!entry.isIntersecting) {
@@ -54,7 +55,6 @@
   }
 
   const observer = new IntersectionObserver(callback, options);
-
   const targets = document.querySelectorAll('.target');
 
   targets.forEach(target => {
@@ -70,6 +70,11 @@
   const follow = (entry) => {
     const headerHeight = entry[0].boundingClientRect.height;
     const headerTop = -entry[0].boundingClientRect.top;
+    // モバイル用 appearHamburger呼び出し
+    if (window.innerWidth < 600) {
+        appearHamburger(headerHeight, headerTop);
+        return;
+    }
     if (headerTop > headerHeight + 100) {
       nav.classList.add('fixed');
     } else if (headerTop > headerHeight + 50) {
@@ -81,6 +86,36 @@
   }
   const observerFollow = new IntersectionObserver(follow, optionsFollow);
   observerFollow.observe(header);
+
+  // ---------- appearHamburger ----------
+  const appearHamburger = (headerHeight, headerTop) => {
+    if (headerTop > headerHeight + 100) {
+      hamburger.classList.add('appear', 'mark');
+    } else {
+      hamburger.classList.remove('appear', 'mark');
+    }
+  }
+
+  // ---------- openHamburger ----------
+  hamburger.addEventListener('click', () => {
+    nav.classList.add('mobile');
+    hamburger.classList.remove('appear');
+    hamburgerClose.classList.add('appear');
+    // ---------- closeHamburger ----------
+    hamburgerClose.addEventListener('click', () => {
+      if (hamburger.classList.contains('mark')) {
+        hamburger.classList.add('appear');
+      }
+      nav.classList.remove('mobile');
+      hamburgerClose.classList.remove('appear');
+    });
+    const mobileLinks = document.querySelectorAll('a');
+    mobileLinks.forEach(mobileLink => {
+      mobileLink.addEventListener('click', () => {
+      hamburgerClose.click();
+      });
+    });
+  });
 
   // ---------- explanation ---------- 
   const explanation = {
@@ -151,10 +186,8 @@
   });
 
   // ---------- parallax ----------
-
   // 背景画像の移動量 この値を変えると背景画像の移動する速さが変わる
   const parallaxRatio = .1;
-
   // ウィンドウをスクロールしたときに実行する関数
   function handleScroll() {
     // その時のスクロール量を取得
@@ -167,10 +200,7 @@
       // 現在のスクロール量より位置が上の方になるから、ゆっくり動くということ？
     }
   }
-
   // ウィンドウをスクロールしたときに handleScroll() 関数を実行
   window.addEventListener("scroll", handleScroll);
-
-
 
 }

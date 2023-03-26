@@ -152,7 +152,7 @@ figure {
   width: 320px;
 }
 
-.bi-x-circle {
+.modal .bi-x-circle {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -178,10 +178,9 @@ header {
 
 header h1 {
   position: absolute;
-  top: 40%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 0;
 }
 
@@ -272,6 +271,30 @@ header nav.fixed a {
   line-height: 80px;
 }
 
+header .icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--theme-color);
+  outline: 1px solid var(--gray-color);
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  font-size: 24px;
+  line-height: 36px;
+  z-index: 5;
+  cursor: pointer;
+  transition: all .3s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+header .hamburger.appear,
+header .hamburger-close.appear {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* ---------- section common ---------- */
 
 section {
@@ -304,6 +327,10 @@ section h2 {
 
 .about .dl-box+.dl-box {
   margin-top: 68px;
+}
+
+.about dl {
+  padding: 0 96px;
 }
 
 .about dt {
@@ -350,7 +377,7 @@ section h2 {
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: rgba(255, 250, 232, 0.8);
+  background: rgba(255, 250, 232, 0.9);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -380,7 +407,6 @@ section h2 {
 .works .content-title.appear {
   opacity: 1;
   transform: translate(-50%, -50%);
-
 }
 
 /* ---------- contact ---------- */
@@ -451,4 +477,133 @@ section h2 {
     opacity: 1;
     transform: translateY(0) scale(1, 1);
   }
+}
+
+/* -------------------- tablet -------------------- */
+
+@media (max-width: 1024px) {
+  
+}
+
+/* -------------------- mobile -------------------- */
+
+@media (max-width: 599px) {
+
+  /* ---------- modal ---------- */
+
+  .modal {
+    width: 90%;
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  figure {
+    display: block;
+  }
+
+  .modal img {
+    width: 90%;
+  }
+
+  figcaption {
+    margin-top: 16px;
+    text-align: left;
+  }
+
+  .bi-x-circle {
+    top: 8px;
+    right: 8px;
+  }
+
+  /* ---------- header ---------- */
+
+  header svg {
+    width: 300px;
+    height: 75px;
+  }
+
+  header .subtitle {
+    margin-top: 8px;
+    font-size: 12px;
+  }
+
+  header nav {
+    width: 100%;
+    left: 0;
+    bottom: 36px;
+  }
+  
+  header ul {
+    padding: 0 36px;
+    align-items: center;
+    gap: calc((100% - 80px * 3) / 2);
+  }
+  
+  header ul a {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+  }
+
+  header ul a+a {
+    margin-left: 0;
+  }
+
+  header nav.mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: rgba(255, 250, 232, 0.9);
+  }
+  
+  header nav.mobile ul {
+    flex-direction: column;
+    margin-top: 48px;
+  }
+  
+  header nav.mobile a {
+    width: 50%;
+    outline: none;
+    border-radius: 0;
+    background: none;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  header nav.mobile a+a {
+    border-top: 1px solid var(--gray-color);
+  }
+
+  /* ---------- section common ---------- */
+
+  section {
+    padding: 56px 0 72px;
+  }
+
+  /* ---------- about ---------- */
+
+  .about .dl-box {
+    display: block;
+  }
+  
+  .about .dl-box+.dl-box {
+    margin-top: 48px;
+  }
+  
+  .about dl {
+    padding: 0 16px;
+  }
+
+  .about dt {
+    margin-bottom: 16px;
+  }
+
+  /* ---------- works ---------- */
+
+  .works .contents {
+    width: 100%;
+    gap: 48px;
+  }
+
 }
