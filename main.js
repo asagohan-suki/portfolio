@@ -42,7 +42,6 @@
   const options = {
     threshold: 0,
   }
-
   const callback = (entries, observer) => {
     entries.forEach(entry => {
       if(!entry.isIntersecting) {
@@ -54,7 +53,6 @@
   }
 
   const observer = new IntersectionObserver(callback, options);
-
   const targets = document.querySelectorAll('.target');
 
   targets.forEach(target => {
@@ -68,6 +66,9 @@
   }
 
   const follow = (entry) => {
+    if (window.innerWidth < 600) {
+      return;
+    }
     const headerHeight = entry[0].boundingClientRect.height;
     const headerTop = -entry[0].boundingClientRect.top;
     if (headerTop > headerHeight + 100) {
@@ -151,10 +152,8 @@
   });
 
   // ---------- parallax ----------
-
   // 背景画像の移動量 この値を変えると背景画像の移動する速さが変わる
   const parallaxRatio = .1;
-
   // ウィンドウをスクロールしたときに実行する関数
   function handleScroll() {
     // その時のスクロール量を取得
@@ -167,10 +166,7 @@
       // 現在のスクロール量より位置が上の方になるから、ゆっくり動くということ？
     }
   }
-
   // ウィンドウをスクロールしたときに handleScroll() 関数を実行
   window.addEventListener("scroll", handleScroll);
-
-
 
 }
