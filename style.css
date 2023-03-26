@@ -152,7 +152,7 @@ figure {
   width: 320px;
 }
 
-.bi-x-circle {
+.modal .bi-x-circle {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -271,28 +271,42 @@ header nav.fixed a {
   line-height: 80px;
 }
 
-.hamburger {
-  width: 48px;
-  height: 48px;
+header .icon {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--theme-color);
   outline: 1px solid var(--gray-color);
   position: fixed;
   top: 16px;
   left: 16px;
-  font-size: 36px;
+  font-size: 24px;
+  line-height: 36px;
   z-index: 5;
   cursor: pointer;
   transition: all .3s;
   opacity: 0;
   visibility: hidden;
+}
+
+header .hamburger {
   transform: translateY(-20px);
 }
 
-.hamburger.appear {
+/* header .hamburgerClose {
+  opacity: 1;
+  visibility: visible;
+} */
+
+header .hamburger.appear {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+header .hamburgerClose.appear {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* ---------- section common ---------- */
