@@ -72,7 +72,7 @@
     const headerHeight = entry[0].boundingClientRect.height;
     const headerTop = -entry[0].boundingClientRect.top;
     // モバイル用 appearHamburger呼び出し
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 1025) {
         appearHamburger(headerHeight, headerTop);
         return;
     }
@@ -99,7 +99,7 @@
 
   // ---------- openHamburger ----------
   hamburger.addEventListener('click', () => {
-    nav.classList.add('mobile');
+    nav.classList.add('narrow');
     hamburger.classList.remove('appear');
     hamburgerClose.classList.add('appear');
     // ---------- closeHamburger ----------
@@ -107,12 +107,12 @@
       if (hamburger.classList.contains('mark')) {
         hamburger.classList.add('appear');
       }
-      nav.classList.remove('mobile');
+      nav.classList.remove('narrow');
       hamburgerClose.classList.remove('appear');
     });
-    const mobileLinks = document.querySelectorAll('a');
-    mobileLinks.forEach(mobileLink => {
-      mobileLink.addEventListener('click', () => {
+    const narrowLinks = document.querySelectorAll('a');
+    narrowLinks.forEach(narrowLink => {
+      narrowLink.addEventListener('click', () => {
       hamburgerClose.click();
       });
     });
