@@ -7,6 +7,7 @@
   const nav = document.querySelector('nav');
   const header = document.querySelector('header');
   const background = document.querySelector(".background");
+  const hamburger = document.querySelector('.hamburger');
   
   // ---------- smooth scroll ----------
   window.addEventListener('DOMContentLoaded', () => {
@@ -87,13 +88,17 @@
 
   // ---------- appearHamburger ----------
   const appearHamburger = (headerHeight, headerTop) => {
-    const hamburger = document.querySelector('.hamburger');
     if (headerTop > headerHeight + 100) {
       hamburger.classList.add('appear');
     } else {
       hamburger.classList.remove('appear');
     }
   }
+
+  // ---------- openHamburger ----------
+  hamburger.addEventListener('click', () => {
+    nav.classList.add('mobile');
+  });
 
   // ---------- explanation ---------- 
   const explanation = {

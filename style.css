@@ -285,11 +285,13 @@ header nav.fixed a {
   cursor: pointer;
   transition: all .3s;
   opacity: 0;
+  visibility: hidden;
   transform: translateY(-20px);
 }
 
 .hamburger.appear {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
 }
 
@@ -545,6 +547,32 @@ section h2 {
 
   header ul a+a {
     margin-left: 0;
+  }
+
+  header nav.mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: rgba(255, 250, 232, 0.9);
+  }
+  
+  header nav.mobile ul {
+    flex-direction: column;
+    margin-top: 48px;
+  }
+  
+  header nav.mobile a {
+    width: 50%;
+    outline: none;
+    border-radius: 0;
+    background: none;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  header nav.mobile a+a {
+    border-top: 1px solid var(--gray-color);
   }
 
   /* ---------- section common ---------- */
