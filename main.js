@@ -66,15 +66,14 @@
   }
 
   const follow = (entry) => {
-    
     const headerHeight = entry[0].boundingClientRect.height;
     const headerTop = -entry[0].boundingClientRect.top;
-    if (headerTop > headerHeight + 100) {
-      if (window.innerWidth < 600) {
-        const hamburger = document.querySelector('.hamburger');
-        hamburger.classList.add('appear');
+    // モバイル用 appearHamburger呼び出し
+    if (window.innerWidth < 600) {
+        appearHamburger(headerHeight, headerTop);
         return;
-      }
+    }
+    if (headerTop > headerHeight + 100) {
       nav.classList.add('fixed');
     } else if (headerTop > headerHeight + 50) {
       nav.classList.add('transparent');
@@ -86,8 +85,14 @@
   const observerFollow = new IntersectionObserver(follow, optionsFollow);
   observerFollow.observe(header);
 
-  const hamburgerBtn = () => {
-    
+  // ---------- appearHamburger ----------
+  const appearHamburger = (headerHeight, headerTop) => {
+    const hamburger = document.querySelector('.hamburger');
+    if (headerTop > headerHeight + 100) {
+      hamburger.classList.add('appear');
+    } else {
+      hamburger.classList.remove('appear');
+    }
   }
 
   // ---------- explanation ---------- 
