@@ -101,15 +101,20 @@
     nav.classList.add('mobile');
     hamburger.classList.remove('appear');
     hamburgerClose.classList.add('appear');
-  });
-
-  // ---------- closeHamburger ----------
-  hamburgerClose.addEventListener('click', () => {
-    if (hamburger.classList.contains('mark')) {
-      hamburger.classList.add('appear');
-    }
-    nav.classList.remove('mobile');
-    hamburgerClose.classList.remove('appear');
+    // ---------- closeHamburger ----------
+    hamburgerClose.addEventListener('click', () => {
+      if (hamburger.classList.contains('mark')) {
+        hamburger.classList.add('appear');
+      }
+      nav.classList.remove('mobile');
+      hamburgerClose.classList.remove('appear');
+    });
+    const mobileLinks = document.querySelectorAll('a');
+    mobileLinks.forEach(mobileLink => {
+      mobileLink.addEventListener('click', () => {
+      hamburgerClose.click();
+      });
+    });
   });
 
   // ---------- explanation ---------- 
