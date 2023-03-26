@@ -84,18 +84,19 @@
 
   // ---------- explanation ---------- 
   const explanation = {
-    password: 'パスワード生成アプリです。プログラミング学習サービス「ドットインストール」のレッスンをもとに作りました。<br>レッスンのままのコードだと数字と記号にチェックをいれても確率上入らないことがあるので、その点を改良しました。<span class="language">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
-    countdown: 'カウントダウンアプリです。プログラミング学習サービス「ドットインストール」のレッスンをもとに作りました。<br>秒数を選べて、Start/Stop/Cancelができるようにアレンジしました。StartとStopを共通のボタンにするのが難しかったです。<span class="language">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
-    slideshow: 'プログラミング学習サービス「ドットインストール」のレッスンをもとに作ったスライドショーです。<br>フォルダ内に写真を追加すると、自動的にスライドショーに追加されるようにアレンジしました。<span class="language">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
-    portfolio: 'このサイトです。名前があさごはんなので、卵をイメージして、黄色と丸い形をテーマにかわいらしいサイトにしました。<span class="language">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
-    memo: 'プログラミング学習サービス「ドットインストール」のレッスンをもとに作ったメモアプリです。ローカルストレージを利用しています。メモを複数追加できて、個別削除できるようにアレンジしました。<span class="language">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
+    password: 'パスワード生成アプリです。プログラミング学習サービス「ドットインストール」のレッスンをもとに作りました。<br>レッスンのままのコードだと数字と記号にチェックをいれても確率上入らないことがあるので、その点を改良しました。<span class="information">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
+    countdown: 'カウントダウンアプリです。プログラミング学習サービス「ドットインストール」のレッスンをもとに作りました。<br>秒数を選べて、Start/Stop/Cancelができるようにアレンジしました。StartとStopを共通のボタンにするのが難しかったです。<span class="information">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
+    slideshow: 'プログラミング学習サービス「ドットインストール」のレッスンをもとに作ったスライドショーです。<br>フォルダ内に写真を追加すると、自動的にスライドショーに追加されるようにアレンジしました。<span class="information">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
+    portfolio: 'このサイトです。名前があさごはんなので、卵をイメージして、黄色と丸い形をテーマにかわいらしいサイトにしました。<span class="information">使用言語:&nbsp;HTML/CSS/JavaScript<br>制作期間:&nbsp;構想から完成まで9日間</span>',
+    memo: 'プログラミング学習サービス「ドットインストール」のレッスンをもとに作ったメモアプリです。ローカルストレージを利用しています。メモを複数追加できて、個別削除できるようにアレンジしました。<span class="information">使用言語:&nbsp;HTML/CSS/JavaScript</span>',
   }
 
-  // ---------- modal ----------
+  // ---------- mouseover animation & modal ----------
   const contents = document.querySelectorAll('.content');
   contents.forEach(content => {
+    // ---------- modal ----------
     content.addEventListener('click', () => {
-      // モーダルの生成と追加
+      // モーダル表示
       const modalCover = document.createElement('div');
       const modal = document.createElement('div');
       const figure = document.createElement('figure');
@@ -120,7 +121,7 @@
 
       body.insertBefore(modalCover, background);
       body.insertBefore(modal, background);
-      // ふわっと表示
+      // モーダルをふわっと表示
       setTimeout(() => {
         modalCover.style.opacity = '.8';
         modal.style.opacity = '1';
@@ -132,7 +133,20 @@
       });
       modalCover.addEventListener('click', () => {
         close.click();
-      })
+      });
+    });
+    // ---------- mouseover ----------
+    content.addEventListener('mouseover', () => {
+      const contentCover = content.children[1];
+      contentCover.classList.add('appear');
+      const contentTitle = content.children[2];
+      contentTitle.textContent = content.children[0].alt;
+      contentTitle.classList.add('appear');
+    });
+    // ---------- mouseleave ----------
+    content.addEventListener('mouseleave', () => {
+      content.children[1].classList.remove('appear');
+      content.children[2].classList.remove('appear');
     });
   });
 
@@ -150,11 +164,13 @@
       const positionY = scrollTop * parallaxRatio;
       // 現在のスクロール量 * 移動量(parallaxRatio) ということは、parallaxRatio < 0 の場合、現在のスクロール量より小さい値になる
       background.style.backgroundPositionY = `${positionY}px`;
-      // 現在のスクロール量より位置が上の方になるから、ゆっくり動くということ...？
+      // 現在のスクロール量より位置が上の方になるから、ゆっくり動くということ？
     }
   }
 
   // ウィンドウをスクロールしたときに handleScroll() 関数を実行
   window.addEventListener("scroll", handleScroll);
+
+
 
 }

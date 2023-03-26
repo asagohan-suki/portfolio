@@ -160,7 +160,7 @@ figure {
   cursor: pointer;
 }
 
-span.language {
+span.information {
   display: block;
   margin-top: 16px;
   font-size: 11px;
@@ -346,14 +346,41 @@ section h2 {
   object-fit: cover;
 }
 
-.works .content p {
-  width: 100%;
-  padding:16px;
+.works .content-cover {
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 250, 232, 0.8);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all .3s;
+}
+
+.works .content-cover.appear {
+  width: 100%;
+  height: 100%;
+}
+
+.works .content-title {
+  width: 100%;
+  padding: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  text-align: center;
+  opacity: 0;
+  font-size: 12px;
   font-weight: 500;
+  transition: all .3s;
+}
+
+.works .content-title.appear {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+
 }
 
 /* ---------- contact ---------- */
