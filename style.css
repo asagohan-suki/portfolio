@@ -271,6 +271,28 @@ header nav.fixed a {
   line-height: 80px;
 }
 
+.hamburger {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--theme-color);
+  outline: 1px solid var(--gray-color);
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  font-size: 36px;
+  z-index: 5;
+  cursor: pointer;
+  transition: all .3s;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.hamburger.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ---------- section common ---------- */
 
 section {
