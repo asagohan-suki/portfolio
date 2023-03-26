@@ -8,6 +8,7 @@
   const header = document.querySelector('header');
   const background = document.querySelector(".background");
   const hamburger = document.querySelector('.hamburger');
+  const hamburgerClose = document.querySelector('.hamburger-close');
   
   // ---------- smooth scroll ----------
   window.addEventListener('DOMContentLoaded', () => {
@@ -89,15 +90,26 @@
   // ---------- appearHamburger ----------
   const appearHamburger = (headerHeight, headerTop) => {
     if (headerTop > headerHeight + 100) {
-      hamburger.classList.add('appear');
+      hamburger.classList.add('appear', 'mark');
     } else {
-      hamburger.classList.remove('appear');
+      hamburger.classList.remove('appear', 'mark');
     }
   }
 
   // ---------- openHamburger ----------
   hamburger.addEventListener('click', () => {
     nav.classList.add('mobile');
+    hamburger.classList.remove('appear');
+    hamburgerClose.classList.add('appear');
+  });
+
+  // ---------- closeHamburger ----------
+  hamburgerClose.addEventListener('click', () => {
+    if (hamburger.classList.contains('mark')) {
+      hamburger.classList.add('appear');
+    }
+    nav.classList.remove('mobile');
+    hamburgerClose.classList.remove('appear');
   });
 
   // ---------- explanation ---------- 

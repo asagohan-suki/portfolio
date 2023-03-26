@@ -289,22 +289,8 @@ header .icon {
   visibility: hidden;
 }
 
-header .hamburger {
-  transform: translateY(-20px);
-}
-
-/* header .hamburgerClose {
-  opacity: 1;
-  visibility: visible;
-} */
-
-header .hamburger.appear {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-header .hamburgerClose.appear {
+header .hamburger.appear,
+header .hamburger-close.appear {
   opacity: 1;
   visibility: visible;
 }
