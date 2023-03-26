@@ -37,6 +37,7 @@
     }, 1000);
     setTimeout(() => {
       document.querySelector('main').style.display = 'block';
+      document.querySelector('footer').style.display = 'block';
     }, 3500);
   });
 
@@ -89,7 +90,7 @@
 
   // ---------- appearHamburger ----------
   const appearHamburger = (headerHeight, headerTop) => {
-    if (headerTop > headerHeight + 100) {
+    if (headerTop > headerHeight + 50) {
       hamburger.classList.add('appear', 'mark');
     } else {
       hamburger.classList.remove('appear', 'mark');
