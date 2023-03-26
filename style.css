@@ -160,7 +160,7 @@ figure {
   cursor: pointer;
 }
 
-span.language {
+span.information {
   display: block;
   margin-top: 16px;
   font-size: 11px;
@@ -365,12 +365,12 @@ section h2 {
 
 .works .content-title {
   width: 100%;
+  padding: 16px;
   position: absolute;
   top: 50%;
   left: 50%;
-  padding:16px;
-  text-align: center;
   transform: translate(-50%, -20%);
+  text-align: center;
   opacity: 0;
   font-size: 12px;
   font-weight: 500;
