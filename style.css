@@ -589,7 +589,8 @@ footer small {
 
   .modal .bi-x-circle {
     top: 8px;
-    right: 8px;
+    left: 8px;
+    right: unset;
   }
 
   /* ---------- header ---------- */
